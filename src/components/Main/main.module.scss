@@ -1,0 +1,157 @@
+.main {
+   display: grid;
+   grid-template-columns: 2.62fr 2.62fr 1fr 1.75fr;
+   grid-template-rows: 60vh 40vh;
+   grid-template-areas:
+      "top_picture top_picture top_description top_description"
+      "btm_left_picture btm_description btm_description btm_right_picture";
+
+   & .top_picture {
+      grid-area: top_picture;
+      display: flex;
+      padding: 5% 7%;
+      position: relative;
+
+      & > img {
+         position: absolute;
+         display: block;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         object-fit: cover;
+         animation: mymove 0.2s linear;
+      }
+   }
+
+   & .top_description {
+      grid-area: top_description;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      text-align: left;
+      justify-content: center;
+      gap: 26px;
+      padding: 0 13%;
+      align-items: start;
+
+      .title__wrapper {
+         display: block;
+         position: relative;
+         width: 100%;
+         height: 20vw;
+
+         @media (max-width: 400px) {
+            height: 110px;
+         }
+      }
+
+      & > button {
+         position: relative;
+         font-weight: 500;
+         letter-spacing: 12.5px;
+         color: var(--black-color);
+         text-transform: uppercase;
+         text-wrap: nowrap;
+
+         &::after {
+            content: "";
+            display: inline-block;
+            width: 40px;
+            position: absolute;
+            top: 15%;
+            right: -40%;
+            transform: translate(-50%);
+            height: 12px;
+            background: url("../../assets/icon-arrow.svg") center / cover no-repeat;
+
+            @media (max-width: 900px) {
+               display: none;
+            }
+         }
+      }
+   }
+
+   & .btm_left_picture {
+      grid-area: btm_left_picture;
+      background: url("../../assets/image-about-dark.jpg") center / cover no-repeat;
+   }
+
+   & .btm_description {
+      grid-area: btm_description;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      justify-content: center;
+      gap: 26px;
+      padding: 0 18%;
+   }
+
+   & .btm_right_picture {
+      grid-area: btm_right_picture;
+      background: url("../../assets/image-about-light.jpg") center / cover no-repeat;
+   }
+}
+
+.buttons {
+   position: absolute;
+   background: var(--black-color);
+   aspect-ratio: 2 / 1;
+   left: 0;
+   bottom: 0;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   z-index: 1;
+
+   button {
+      display: block;
+      padding: 20px;
+      transition: 0.3s;
+      &:hover {
+         background-color: var(--dark-color);
+      }
+   }
+
+   @media (max-width: 640px) {
+      left: calc(100% - 108px);
+   }
+}
+
+@keyframes mymove {
+   0% {
+      left: -50%;
+   }
+   100% {
+      left: 0;
+   }
+}
+
+@media (max-width: 640px) {
+   .main {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+   }
+
+   .top_description,
+   .top_picture {
+      height: 360px;
+   }
+
+   .btm_left_picture,
+   .btm_description,
+   .btm_right_picture {
+      height: 240px;
+   }
+
+   .top_description,
+   .btm_description {
+      padding: 30px !important;
+      gap: 0 !important;
+
+      @media (max-width: 400px) {
+         padding: 10px !important;
+      }
+   }
+}

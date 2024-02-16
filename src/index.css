@@ -1,0 +1,28 @@
+@import url('./normalize.css');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+
+
+:root {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  --grey-color: #A0A0A0;
+  --black-color: #000000;
+  --white-color: #FFFFFF;
+  --dark-color: #444444;
+}
+
+
+body {
+  margin: 0 auto;
+  color: var(--grey-color);
+}
+
+
+
